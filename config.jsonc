@@ -1,0 +1,118 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    "width": 250, // WAybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "custom/hyprland_workspaces",
+        "custom/window"
+    ],
+    "modules-center": [
+        "disk",
+        "cpu",
+        "memory",
+        "temperature"
+    ],
+    "modules-right": [
+        "idle_inhibitor",
+        "pulseaudio",  
+        "keyboard-state",
+        "clock",
+        "tray",
+        "custom/power"
+    ],
+    "custom/hyprland_workspaces": {
+//        "exec": "/home/yoel/.config/waybar/scripts/hyprland_workspaces.sh",
+//        "interval": 2,
+//        "return-type": "json",
+//        "format": "{name}",
+        "on-click": "hyprctl dispatch workspace e+1",
+        "on-click-right": "hyprctl dispatch workspace e-1"
+    },
+
+ //   "custom/window": {
+ //       "exec": "home/yoel/.config/waybar/scripts/window_title.sh",
+ //       "interval": 1,
+ //       "format": "{}"
+//  },
+
+
+
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "Eurome/Madrid",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "on-click": "xfce4-taskmanager",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{used} Gb "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+        "critical-threshold": 60,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "disk": {
+        "interval": 30,
+        "format": "{free}",
+        "unit": "GB",
+        "path": "/home",
+        "on-click": "thunar"
+        // 1434.25 GB out of 2000.00 GB available. Alternatively 1.4TiB out of 1.9TiB available.
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/power": {
+        "format" : "⏻",
+		"tooltip": false,
+		"on-click": "systemctl poweroff"
+		}
+    
+}
