@@ -112,7 +112,7 @@
     "custom/power": {
         "format" : "⏻",
 		"tooltip": false,
-		"on-click": "systemctl poweroff"
+		"on-click": "~/.local/bin/clean-poweroff.sh"
 		}
     
 }
