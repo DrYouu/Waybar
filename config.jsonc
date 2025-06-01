@@ -72,7 +72,8 @@
         "tooltip": false
     },
     "memory": {
-        "format": "{used} Gb "
+        "format": "{used} Gb ",
+        "on-click": "wofi --show drun"
     },
     "temperature": {
         // "thermal-zone": 2,
