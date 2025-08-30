@@ -7,51 +7,19 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces",
-        "custom/window"
+        "disk",
+        "memory",
+        "cpu",
+        "temperature"
     ],
     "modules-center": [
-        "disk",
-        "cpu",
-        "memory",
-        "temperature"
+        "clock"
     ],
     "modules-right": [
         "pulseaudio",  
         "keyboard-state",
-        "clock",
         "custom/power"
     ],
-    "hyprland/workspaces": {
-//        "exec": "/home/yoel/.config/waybar/scripts/hyprland_workspaces.sh",
-//        "interval": 2,
-//        "return-type": "json",
-//        "format": "{name}",
-//        "on-click": "hyprctl dispatch workspace e+1",
-//        "on-click-right": "hyprctl dispatch workspace e-1""format": "{icon}",
-          "format": "{icon}",
-          "on-click": "activate",
-          "format-icons": {
-             "1": "",
-             "2": "",
-             "3": "",
-             "4": "",
-             "5": "",
-             "urgent": "",
-             "active": "",
-             "default": ""
-        },
-          "sort-by-number": true
-    },
-
- //   "custom/window": {
- //       "exec": "home/yoel/.config/waybar/scripts/window_title.sh",
- //       "interval": 1,
- //       "format": "{}"
-//  },
-
-
-
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -115,11 +83,11 @@
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
+      //  "format-bluetooth": "{volume}% {icon} {format_source}",
+      //  "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
      //   "format-source": "{volume}% ",
-        "format-source-muted": "",
+    //    "format-source-muted": "",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
